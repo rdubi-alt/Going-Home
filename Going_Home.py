@@ -26,7 +26,7 @@ def fortune_teller():
     if fortune_number == 9:
         fortune_text = "There will be obstacles in your path. Face them head-on; you will succeed."
     if fortune_number == 10:
-        fortune_text = "Letting go will sometimes be the best choice you can make."
+        fortune_text = "Sometimes, it's best to go with the flow."
 
     input()
     print("'Okay... Ho, hum. Let's see.' The old man peers into the palm of your hand.")
@@ -42,7 +42,7 @@ def parent():
     input()
     
     while True:
-        name = input("The parent asks you, 'What's your name?' > ")
+        name = input("The parent asks you, 'What's your name?' > ").capitalize()
         if name == "":
             input()
             print("(Write your name after the > )")
@@ -50,19 +50,21 @@ def parent():
         else:
             print(f"\n'{name}?' the parent asks. 'I'm sorry. I don't know anyone by that name.'")
             input()
+            oldman()
             break
     
+def oldman():
     print("As you walk away, someone calls you over: 'Hey, kid! Yeah, you. Come here.'")
     input()
     print("It's an old man.")
     
     while True:
-        fortune = input("\n'Want me to tell you your fortune?' the old man asks. [Yes/No] > ").capitalize()
-        if fortune in ["No", "Nah", "N", "2"]:
-            print("'Okay. Suit yourself,' he says.")
+        fortune = input("\n'Want me to tell you your fortune?' the old man asks. [Y/N] > ").capitalize()
+        if fortune in ["No", "Nah", "N", "2", "2."]:
+            print("\n'Okay. Suit yourself,' he says.")
             intro()
             break
-        elif fortune in ["Yes", "Okay", "Sure", "Y", "1"]:
+        elif fortune in ["Yes", "Yeah", "Okay", "Sure", "Y", "1", "1."]:
             print("\nHe smiles wide. 'Great!! I knew a kid like you would appreciate a good fortune-telling.'")
             fortune_teller() 
             print("Before you can say anything else, the old man's grandkids run over and divert his attention.")
@@ -666,20 +668,38 @@ def end():
     input()
     print("You reach home. You're very happy, because though you were frightened, you still found your way.")
     input()
-    print("The End")
+    print_the_end()
     input()
     quit()
 
+#made using https://www.ascii-art-generator.org/, "big" font, max line width 40
+def print_the_end():
+    print(" _______ _            ______           _ ")
+    print("|__   __| |          |  ____|         | |")
+    print("   | |  | |__   ___  | |__   _ __   __| |")
+    print("   | |  | '_ \ / _ \ |  __| | '_ \ / _` |")
+    print("   | |  | | | |  __/ | |____| | | | (_| |")
+    print("   |_|  |_| |_|\___| |______|_| |_|\__,_|")
+
+def print_going_home():
+    print("  _____       _               _    _  ")                    
+    print(" / ____|     (_)             | |  | |")                     
+    print("| |  __  ___  _ _ __   __ _  | |__| | ___  _ __ ___   ___ ")
+    print("| | |_ |/ _ \| | '_ \ / _` | |  __  |/ _ \| '_ ` _ \ / _ \ ") 
+    print("| |__| | (_) | | | | | (_| | | |  | | (_) | | | | | |  __/")
+    print(" \_____|\___/|_|_| |_|\__, | |_|  |_|\___/|_| |_| |_|\___|")
+    print("                       __/ | ")                             
+    print("                      |___/ ")                              
 
 def main():
-    print("Going Home") #Game title card
-    print("")
-    print(input("Press Enter to continue "))
+    print_going_home() #Game title card 
+    print(input("\nPress Enter to continue "))
     print("The school bell rings. It's the end of the day and you can go home.") 
     input()
     print("But...What was the way home again? You look around, not sure what to do. You see a parent, a wandering cat, and a tall climbing tree.")
+    input()
     intro()
 
 main()
 
-#https://github.com/codinggrace/text_based_adventure_game/blob/master/game_04.py 
+#used this tutorial: https://github.com/codinggrace/text_based_adventure_game/tree/master
