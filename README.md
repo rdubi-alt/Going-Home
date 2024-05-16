@@ -1,2 +1,2 @@
 # Going-Home
-A text adventure game made with Python. 
+A text adventure game inspired by the metaphors used in Acceptance and Commitment Therapy (ACT). 
